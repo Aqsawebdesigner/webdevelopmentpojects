@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows 11 Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Desktop -->
+  <main id="desktop">
+    <div class="icon" data-app="notepad"><span>📝</span>Notepad</div>
+    <div class="icon" data-app="about"><span>💻</span>This PC</div>
+    <div class="icon" data-app="calc"><span>🧮</span>Calculator</div>
+  </main>
+
+  <!-- Windows container -->
+  <div id="windows"></div>
+
+  <!-- Start menu -->
+  <section id="start" class="hidden">
+    <input type="search" placeholder="Type here to search" aria-label="Search apps">
+    <h4>Pinned</h4>
+    <div class="pinned">
+      <button data-app="notepad"><span>📝</span>Notepad</button>
+      <button data-app="calc"><span>🧮</span>Calculator</button>
+      <button data-app="about"><span>💻</span>This PC</button>
+    </div>
+    <footer><b>User</b><button id="power" title="Shut down">⏻</button></footer>
+  </section>
+
+  <!-- Taskbar -->
+  <nav id="taskbar">
+    <div class="center">
+      <button id="startBtn" title="Start">⊞</button>
+      <button data-app="notepad" title="Notepad">📝</button>
+      <button data-app="calc" title="Calculator">🧮</button>
+      <span id="tasks"></span>
+    </div>
+    <div class="tray"><span id="clock"></span></div>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

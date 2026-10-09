@@ -1,0 +1,58 @@
+:root{
+  --bg:#1b4b8f; --mica:rgba(243,243,243,.82); --text:#1a1a1a;
+  --accent:#0067c0; --border:rgba(0,0,0,.12); --radius:8px;
+}
+*{box-sizing:border-box;margin:0;font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif}
+html,body{height:100%;overflow:hidden}
+body{background:radial-gradient(circle at 30% 20%,#4aa3ff 0,#1b4b8f 45%,#0a1f4a 100%);color:var(--text)}
+
+#desktop{display:grid;grid-template-columns:repeat(auto-fill,84px);grid-auto-rows:92px;gap:6px;padding:10px;height:calc(100% - 48px);color:#fff}
+.icon{display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 4px;border-radius:var(--radius);font-size:12px;cursor:default;text-shadow:0 1px 3px #000}
+.icon span{font-size:34px}
+.icon:hover{background:rgba(255,255,255,.15)}
+
+/* Taskbar */
+#taskbar{position:fixed;bottom:0;left:0;right:0;height:48px;display:flex;justify-content:center;align-items:center;background:var(--mica);backdrop-filter:blur(30px);border-top:1px solid var(--border);z-index:1000}
+.center{display:flex;gap:4px;align-items:center}
+#taskbar button{width:42px;height:40px;border:0;border-radius:6px;background:transparent;font-size:20px;cursor:pointer;position:relative}
+#taskbar button:hover{background:rgba(0,0,0,.08)}
+#taskbar button.open::after{content:"";position:absolute;bottom:2px;left:50%;width:8px;height:3px;margin-left:-4px;border-radius:2px;background:#888}
+#taskbar button.active::after{width:16px;margin-left:-8px;background:var(--accent)}
+#startBtn{color:var(--accent);font-size:24px}
+#tasks{display:flex;gap:4px}
+.tray{position:absolute;right:14px;font-size:12px;text-align:right}
+
+/* Start menu */
+#start{position:fixed;bottom:58px;left:50%;transform:translateX(-50%);width:min(560px,94vw);padding:24px;border-radius:12px;background:var(--mica);backdrop-filter:blur(40px);border:1px solid var(--border);box-shadow:0 8px 32px rgba(0,0,0,.35);z-index:999;transition:.15s}
+#start.hidden{opacity:0;visibility:hidden;transform:translate(-50%,16px)}
+#start input{width:100%;padding:10px 14px;border-radius:20px;border:1px solid var(--border);margin-bottom:18px;font-size:14px}
+#start h4{margin-bottom:10px}
+.pinned{display:grid;grid-template-columns:repeat(auto-fill,90px);gap:8px;min-height:130px}
+.pinned button{display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px;border:0;background:transparent;border-radius:6px;font-size:12px;cursor:pointer}
+.pinned button span{font-size:28px}
+.pinned button:hover{background:rgba(0,0,0,.07)}
+#start footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--border)}
+#power{border:0;background:none;font-size:20px;cursor:pointer}
+
+/* Windows */
+.win{position:absolute;min-width:280px;min-height:160px;display:flex;flex-direction:column;background:#fff;border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.35);overflow:hidden;animation:pop .15s ease-out}
+@keyframes pop{from{transform:scale(.94);opacity:0}}
+.win.max{inset:0 0 48px 0!important;width:auto!important;height:auto!important;border-radius:0}
+.win.min{display:none}
+.title{display:flex;align-items:center;height:36px;padding-left:12px;background:#f3f3f3;user-select:none;cursor:default}
+.title b{flex:1;font-size:12px;font-weight:400}
+.title button{width:46px;height:36px;border:0;background:transparent;font-size:13px;cursor:pointer}
+.title button:hover{background:rgba(0,0,0,.08)}
+.title .close:hover{background:#c42b1c;color:#fff}
+.body{flex:1;overflow:auto}
+.body textarea{width:100%;height:100%;border:0;padding:10px;resize:none;outline:none;font:14px Consolas,monospace}
+.about{padding:24px;line-height:1.7;font-size:14px}
+
+/* Calculator */
+.calc{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;padding:6px;background:#eee;height:100%}
+.calc output{grid-column:1/-1;text-align:right;font-size:32px;padding:14px 8px;overflow:hidden}
+.calc button{border:0;border-radius:4px;background:#fff;font-size:16px;cursor:pointer}
+.calc button:hover{background:#e4e4e4}
+.calc .eq{background:var(--accent);color:#fff}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
